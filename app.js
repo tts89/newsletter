@@ -7,7 +7,7 @@ const apiSecret = require(__dirname+"/secret");
 app.use(parser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-app.listen(3000,function () {
+app.listen(process.env.PORT || 3000,function () {
     console.log("Server is Listening");
 });
 
@@ -64,7 +64,6 @@ app.post("/",function (req,res) {
             console.log(`respnse: ${respose.statusCode}`);
         }
     });
-
 });
 
 app.post("/failure",function (req,res) {
